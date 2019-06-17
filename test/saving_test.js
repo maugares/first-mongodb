@@ -6,19 +6,18 @@ const MarioChar = require('../models/marioChar');
 describe('Saving records', () => {
 
   // Create tests
-  it('Saves a record to the database', (done) => {
+  it('Saves a record to the database',
+    (done) => {
 
-    const char = new MarioChar({
-      name: 'Mario'
-    });
-
-    char
-      .save()
-      .then(() => {
-        assert(!char.isNew);
-        done();
+      const char = new MarioChar({
+        name: 'Mario'
       });
 
-  });
-
+      char
+        .save()
+        .then(() => {
+          assert(!char.isNew);
+          done();
+        });
+    });
 });

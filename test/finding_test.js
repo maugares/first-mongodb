@@ -5,9 +5,7 @@ const MarioChar = require('../models/marioChar');
 // Describe our tests
 describe('Finding records', () => {
 
-  // Create tests
-  it('Saves a record to the database', (done) => {
-
+  beforeEach((done) => {
     const char = new MarioChar({
       name: 'Mario'
     });
@@ -18,7 +16,15 @@ describe('Finding records', () => {
         assert(!char.isNew);
         done();
       });
-
   });
 
-});
+  // Create tests
+  it('Finds one record from the database',
+    (done) => {
+      MarioChar
+        .findOne({ name: 'Mario' })
+        .then((result) => {
+          assert(result.name === 'Mario');
+        });
+    });
+}); 
