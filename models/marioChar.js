@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// Create Schema and Model
+// Create a Schema and a Model
 
 const MarioCharSchema = new Schema({
     name: String,
-    weight: Number;
+    weight: Number,
 });
 
-const MarioChar = mongoose.model('marioChar', MarioCharSchema);
+const MarioChar = mongoose.model('mariochar', MarioCharSchema);
 
 module.exports = MarioChar;
