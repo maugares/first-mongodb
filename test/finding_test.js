@@ -25,6 +25,7 @@ describe('Finding records', () => {
         .findOne({ name: 'Mario' })
         .then((result) => {
           assert(result.name === 'Mario');
+          done();
         });
     });
 }); 
