@@ -3,7 +3,7 @@ const assert = require('assert');
 const MarioChar = require('../models/marioChar');
 
 // Describe our tests
-describe('Saving records', () => {
+describe('Finding records', () => {
 
   // Create tests
   it('Saves a record to the database', (done) => {
