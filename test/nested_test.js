@@ -5,6 +5,12 @@ const Author = require('../models/author')
 // Describe tests
 describe('Nesting records', () => {
 
+  beforeEach((done) => {
+    mongoose.connection.collections.authors.drop(() => {
+      done();
+    });
+  });
+
   // Create tests
   it('Creates an author with sub-documents',
     (done) => {
