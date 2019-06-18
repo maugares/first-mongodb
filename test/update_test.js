@@ -43,7 +43,7 @@ describe('Updating records', () => {
     (done) => {
 
       MarioChar
-        .update({}, { $inc: { weight: 1 } })
+        .updateMany({}, { $inc: { weight: 1 } })
         .then(() => {
 
           MarioChar
