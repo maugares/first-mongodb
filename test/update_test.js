@@ -8,7 +8,8 @@ describe('Updating records', () => {
 
   beforeEach((done) => {
     char = new MarioChar({
-      name: 'Mario'
+      name: 'Mario',
+      weight: 50,
     });
 
     char
@@ -30,6 +31,25 @@ describe('Updating records', () => {
             .findOne({ _id: char._id })
             .then((result) => {
               assert(result.name === 'Luigi');
+              done();
+            });
+
+        });
+
+    });
+
+  // Test update operators. More on: https://docs.mongodb.com/manual/reference/operator/update/
+  it('Increments the weight by 1',
+    (done) => {
+
+      MarioChar
+        .update({}, { $inc: { weight: 1 } })
+        .then(() => {
+
+          MarioChar
+            .findOne({ name: 'Mario' })
+            .then((record) => {
+              assert(record.weight === 51);
               done();
             });
 
