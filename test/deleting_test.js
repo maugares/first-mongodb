@@ -15,7 +15,6 @@ describe('Deleting records', () => {
     char
       .save()
       .then(() => {
-        assert(!char.isNew);
         done();
       });
   });
