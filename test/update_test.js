@@ -3,7 +3,7 @@ const assert = require('assert');
 const MarioChar = require('../models/marioChar');
 
 // Describe our tests
-describe('Deleting records', () => {
+describe('Updating records', () => {
 
   let char;
 
@@ -21,20 +21,20 @@ describe('Deleting records', () => {
   });
 
   // Create tests
-  it('Deletes one record from the database',
+  it('Updates one record in the database',
     (done) => {
 
       MarioChar
-        .findOneAndDelete({ name: 'Mario' })
+        .findOneAndUpdate({ name: 'Mario' }, { name: 'Luigi' })
         .then(() => {
 
           MarioChar
-            .findOne({ name: 'Mario' })
+            .findOne({ _id: char._id })
             .then((result) => {
-              assert(result === null);
+              assert(result.name === 'Luigi');
               done();
             });
-            
+
         });
 
     });
