@@ -6,7 +6,7 @@ mongoose.Promise = global.Promise;
 // Connect to the db before tests run
 before((done) => {
 	// Connect to mongodb
-	mongoose.connect('mongodb://localhost/testaroo', { useNewUrlParser: true });
+	mongoose.connect('mongodb://localhost/testaroo', { useNewUrlParser: true, useFindAndModify: false });
 
 	mongoose.connection
 		.once('open', () => {
